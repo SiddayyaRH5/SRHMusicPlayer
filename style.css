@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--encore-body-font-stack, var(--fallback-fonts, sans-serif)), sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.close {
+    display: none;
+}
+
+.right {
+    width: 72vw;
+    margin: 0px 0px;
+    position: relative;
+}
+
+.logo {
+    margin-right: 25px;
+}
+
+.nav-bar {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 16px;
+}
+
+.home {
+    display: flex;
+    gap: 10px;
+    width: 22px;
+    font-weight: 700;
+}
+
+.home img {
+    margin-top: -15px;
+}
+
+.heading {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    font-size: 26px;
+    font-weight: bolder;
+    color: #b3b3b3;
+    padding: 16px;
+}
+
+.library {
+    height: 90vh;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    font-size: 11px;
+    font-weight: 400;
+    gap: 13px;
+    position: absolute;
+    bottom: 0;
+    padding: 15px 0px;
+}
+
+.footer a {
+    color: rgb(179, 179, 179);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(179, 179, 179);
+    height: 65px;
+    background-color: black;
+}
+
+.header * {
+    padding: 1px;
+}
+
+.buttons>div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 16px;
+}
+
+.buttons a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.buttons svg {
+    margin: 0px;
+    width: 17px;
+    margin-top: 2px;
+}
+
+.buttons svg:hover {
+    cursor: pointer;
+}
+
+.line {
+    background: #fff;
+    height: 25px;
+    margin: 16px;
+    width: 1px;
+    padding: 0;
+}
+
+.loginbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 999px;
+    /* Makes it fully rounded */
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3
+}
+
+.loginbtn:hover {
+    background-color: whitesmoke;
+}
+
+.cardcontainer {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    /* ⬅️ horizontal scroll */
+    overflow-y: hidden;
+    gap: 15px;
+    /* ✅ spacing between cards */
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #666 #111;
+}
+
+.title:hover {
+    text-decoration: underline;
+}
+
+.subtitle:hover {
+    text-decoration: underline;
+}
+
+.Songs-sections {
+    max-height: 83vh;
+    overflow-y: scroll;
+    margin-left: 20px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.SongsType {
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.SongsType h2 {
+    padding-bottom: 20px;
+}
+
+.SongsType h2:hover {
+    text-decoration: underline;
+}
+
+.card {
+    width: 200px;
+    border-radius: 5px;
+    background-color: #121212;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    /* ✅ prevents shrinking or overlap */
+}
+
+.card img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+.songbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.songlist ul {
+    padding-left: 20px;
+}
+
+.songlist ul li {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 8px 0px;
+}
+
+.songlist {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+/* Default: mobile/tablet — full width */
+.playbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #D0F0FF;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+
+.musicbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.songinfo {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.songtime {
+    flex-shrink: 0;
+    min-width: 60px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+}
+
+.seekbar {
+    width: 100%;
+}
+
+#seekbar {
+    width: 100%;
+    accent-color: #1ED760;
+    cursor: pointer;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.volume-slider {
+    width: 0;
+    margin-left: 5px;
+    opacity: 0;
+    accent-color: #1ED760;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.volume:hover .volume-slider {
+    width: 70px;
+    /* expand when hovered */
+    opacity: 1;
+    accent-color: #1ED760;
+    height: 6px;
+    cursor: pointer;
+}
+
+
+.volume svg {
+    width: 16px;
+    /* smaller icon size */
+    height: 16px;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 600px) {
+    .musicbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .songtime {
+        align-self: flex-end;
+        margin-top: -25px;
+    }
+}
+
+
+/* RESPONSIVE MEDIA QUERIES */
+
+@media (max-width: 1250px) {
+    .left {
+        background-color: black;
+        position: absolute;
+        left: -120%;
+        transition: all .3s;
+        z-index: 1;
+        width: 460px;
+    }
+
+    .left .logo img {
+        width: 30px;
+        /* Change this to whatever size you want */
+        height: auto;
+        /* Keeps aspect ratio */
+    }
+
+    .left .home img {
+        margin-top: -8px;
+    }
+
+    .left .close {
+        position: absolute;
+        right: 25px;
+        top: 15px;
+        width: 30px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: 100vw;
+    }
+
+    .hamburger {
+        display: block;
+        padding: 20px;
+        color: rgb(179, 179, 179);
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        color: rgb(179, 179, 179);
+        height: 65px;
+        background-color: black;
+    }
+
+    .buttons svg {
+        display: none;
+    }
+
+    #install-app {
+        display: none;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .loginbtn {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        border-radius: 99px;
+        /* Makes it fully rounded */
+        padding: 3px 13px;
+        font-size: 9px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-right: 5px;
+    }
+
+    .otherbtns {
+        cursor: pointer;
+        gap: 1px !important;
+        font-size: 12px !important;
+        display: block;
+        padding-top: 20px;
+    }
+
+    .otherbtns:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .footer {
+        display: flex;
+        font-size: 9px;
+        font-weight: 200;
+        gap: 6px;
+        position: absolute;
+        bottom: 0;
+        padding: 15px;
+        margin: 3px;
+    }
+
+    .playbar {
+        display: flex !important;
+        justify-content: center;
+        position: fixed;
+        bottom: -1;
+        width: 100%;
+        z-index: 999;
+    }
+
+}
+
+/* Desktop: only inside .right */
+@media screen and (min-width: 1024px) {
+    .playbar {
+        position: sticky;
+        bottom: 0;
+        width: auto;
+        background-color: #D0F0FF;
+        border-radius: 5px;
+    }
+
+    /* Make sure .right contains it properly */
+    .right {
+        position: relative;
+    }
+}

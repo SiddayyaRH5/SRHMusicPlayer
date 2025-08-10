@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+
+    <title>SRH Music Player</title>
+</head>
+
+<body>
+    <div class="container flex bg-black">
+        <div class="left">
+            <div class="close">
+                <img class="invert" src="close.svg" alt="" width="30px">
+            </div>
+            <div class="nav-bar">
+                <div class="home bg-gray ">
+                    <div class="logo"><img src="logo2.png" alt="" width="40px"
+                            style="border-radius: 10px; margin-left: 10px;"></div>
+                    <img class="invert" src="home.svg" alt="home"> Home
+                    <img class="invert" src="search.svg" alt="search"> Search
+                </div>
+            </div>
+            <div class="library bg-gray">
+                <div class="heading ">
+                    <img src="music.svg" alt="">
+                    <h3>Your library</h3>
+                </div>
+                <div class="songlist">
+                    <ul>
+
+                    </ul>
+                </div>
+
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/in-en/legal/">Legal</a></div>
+                    <div><a href="https://www.spotify.com/in-en/safetyandprivacy/">Safety & Privacy Center</a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a></div>
+                    <div></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a></div>
+                    <div><a href="https://www.spotify.com/in-en/accessibility/">Accessibility</a></div>
+
+                    <a href="https://www.spotify.com/legal/cookies-policy/" target="_blank" rel="noopener">Cookies</a>
+                </div>
+            </div>
+        </div>
+        <div class="right bg-gray ">
+            <div class="header">
+                <img class="invert hamburger" src="hamburger.svg" alt="" width="30px">
+                <div class="nav"></div>
+
+                <div class="buttons ">
+                    <div>
+                        <button class="otherbtns">Premium</button>
+                        <button class="otherbtns">Support</button>
+                        <button class="otherbtns">Download</button>
+                        <div class="line"></div>
+                        <a draggable="false" href="/download">
+                            <span aria-hidden="true">
+                            </span>
+                            <span class="invert"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                    height="24" color="#b3b3b3" fill="none">
+                                    <path
+                                        d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                        stroke="#141B34" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M12 15V8M15.5 12.5002C15.5 12.5002 12.9223 16.0002 12 16.0002C11.0777 16.0002 8.50003 12.5002 8.50003 12.5002"
+                                        stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></span>
+                            <span class="otherbtns" id="install-app">Install App</span>
+                        </a>
+                        <button class="otherbtns">Sign up</button>
+                        <button class="loginbtn">
+                            <span>Log in</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="Songs-sections">
+                <div class="SongsType">
+                    <h2>Trending Songs</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Pardesiya - From Param Sundari - Sachin-Jigar.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02d5754cde395f5c46792186c7" alt="">
+                            <h3 class="title">Pardesiya - From "Param Sundari"</h3>
+                            <p class="subtitle">Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Bheegi Saree (From Param Sundari).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/SMJl0wXXAkzpHAELBmSzs35nb8GvkIewvjAJIE0DWS_A390L6qny-90P6jx1xW5-gf7SKEiv9YN8jFRa7w=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Bheegi Saree (From "Param Sundari")</h3>
+                            <p class="subtitle">Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Coolie Disco (From Coolie).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/rEP8DGXzEu4hQlgTKlKMpJAVH4_hKne4nGq-G-x_w13k--GA2co00q_qNuJuKU_qj6p7GgXWadTdnA8g=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Coolie Disco (From "Coolie")</h3>
+                            <p class="subtitle">Anirudh Ravichander Coolie (Original Motion Picture Soundtrack)2025</p>
+                        </div>
+
+                        <div class="card" data-song="Aavan Jaavan (From _WAR 2_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/CpHtlQNWV3fThtKbZoKuhQ3x3u4BrLPi_3lNG4SXYcbDKK7_Cm9ohUakjbMvVXBMke0_1Yce6-4znJyASA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Aavan Jaavan (From "WAR 2")</h3>
+                            <p class="subtitle">Arijit Singh & Nikhita Gandhi</p>
+                        </div>
+
+                        <div class="card" data-song="Beast Mode (From _Beast_) - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/qxkprBC3H2RdudbaaWC8mN9FOej5BeN4ZP6grYSjQl-nhiAFW_KJ2OvIRf8YzAYtxJD0C8AHGzLtFQfw=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Beast Mode (From "Beast")</h3>
+                            <p class="subtitle">Anirudh Ravichander</p>
+                        </div>
+
+                        <div class="card"
+                            data-song="Don'u Don'u Don'u (From Maari) - The Don's Romance - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/e7JBVvlKSP1IAbNolVtZlvIu_qbh9sKA4ukBoYu9JMJ2tYV0XD25PEBv0uiTaD0Rk80RN3NR8R6iTSlkXw=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Don'u Don'u (From "Maari") (The Don's Romance)</h3>
+                            <p class="subtitle">Anirudh Ravichander & Alisha Thomasa</p>
+                        </div>
+
+                        <div class="card" data-song="Pacha Elai (From _Love Today_) - Yuvan Shankar Raja.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/eZ6FiHwDcwn2e5mToJjTYXDvpZmeAKEJSD1Amo2mogtzKXoosJ7VJdkrXaZGndxzoAcgNy_VDSqkA6A=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Pacha Elai (From "Love Today")</h3>
+                            <p class="subtitle">Yuvan Shankar Raja & Mathichiyam Bala</p>
+                        </div>
+
+                        <div class="card" data-song="Vaathi Coming (From _Master_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/pkXMp7DyktWsOkxNaCfZMx4_7CX0KB5iwNb5mjpuQ34XEF-V_xnnG5q9zggmhEbh3o8kEtm61tpZvrqe0A=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Vaathi Coming (From "Master")</h3>
+                            <p class="subtitle">Anirudh Ravichander & Gana Balachandar</p>
+                        </div>
+
+                        <div class="card" data-song="Nee Singam Dhan - Vocals Only - A.R. Rahman.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/YIMTS4gz8nZKOYuxoiTHRdVq80lGtQdYeE5G4uT7ZZA6n5qOhKUuSB5Js74X2kJD3YZYGI3X4OQ56tWs=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Nee Singam Dhan (Vocals Only)</h3>
+                            <p class="subtitle">A.R. Rahman & Sid Sriram</p>
+                        </div>
+
+                        <div class="card" data-song="Manasilaayo (From _Vettaiyan_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/NZtKRxkwbd8aJmUIZT3KX04bE3baAgFuma3V0g-bzi5t3Bayw0bUyBSILB9exyvw8CMxJMV-nkqmSWL4=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Manasilaayo (From "Vettaiyan")</h3>
+                            <p class="subtitle">Anirudh Ravichander, Malaysia Vasudevan,Yugendran Vasudevan & Deepthi
+                                Suresh</p>
+                        </div>
+
+                        <div class="card" data-song="Salambala (From _Madharaasi_) (Tamil) - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Lzgd7Kn6caC02A-JooYp8bl5_ynpk-2AeGut31T5lCq1GXNLeOPYnJLtPIjwKnAl2_GEsREWjH-pUQai=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Salambala (From "Madharaasi") (Tamil)</h3>
+                            <p class="subtitle">Anirudh Ravichander & Sai Abhyankar</p>
+                        </div>
+
+                        <div class="card" data-song="Saiyaara (From _Saiyaara_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/LbSZO8GtotJrdk49H0xQuB7rZD2DpdyJO_it31_XrQ_AMdoKG67VDS33JgZjn02f4C6kOgtvc8S4dfUR=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">SAIYAARA (From "SAIYAARA")</h3>
+                            <p class="subtitle">Arijit Singh & Mithoon</p>
+                        </div>
+
+                        <div class="card" data-song="Firestorm (From _They Call Him OG_) - Thaman S.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Y1-ahyzQA-suxg3j35pMrnM1jsg5HLakDM6lTqbKzn1GcLmDeTi8QVoCLz2KHVfR49TPuSMu4dT-VKsL=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Firestorm (From "They Call Him OG")</h3>
+                            <p class="subtitle">Thaman S STR Raja Kumari Deepak Blue</p>
+                        </div>
+
+                        <div class="card" data-song="Uyi Amma - From _Azaad_.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/h1LMB4t0dFgZXZrECr1yF59r_k51Vrihwc1QwinVl3ARrElIkepW34u1Ipp-fIFCgi1Y7lOeQGXTSwU=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Uyi Amma (From "Azaad")</h3>
+                            <p class="subtitle">Amit Trivedi Madhubanti Bagchi Amitabh Bhattacharya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>Kannada Songs</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Mungaru Maleye - Sonu Nigam.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://i.scdn.co/image/ab67616d0000b273bbf22ed918b9d716dc9cafeb" alt="">
+                            <h3 class="title">Mungaru Male (Original Motion Picture SoundtracK)</h3>
+                            <p class="subtitle">Krishnakali Saha,Sonu Nigham,Yograj Bhatta</p>
+                        </div>
+
+                        <div class="card" data-song="Dheera Dheera-KGF Chapyet 1.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/DovxZkKUVJjmzyq88W9IiziYb6d4fkSKUM3L8huIUOkrUZ-KfNconQex-HOViCuq9l6aXsnx9VWnPOv8=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Dheera Dheera (From "KGF Chapter 1")</h3>
+                            <p class="subtitle">Santhosh, Sachin, Puneeth, Mohan, H.Shreenivas, Vijay Aurs, and Ananya
+                                Bhat</p>
+                        </div>
+
+                        <div class="card" data-song="Feel The Power - Thaman S.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/LvrOfVjy6CF8JRvPqCy73s_BNcerxXmWMMPxgGPbiXiseAmApom3ZkXwAj8vv9w5vad75kn4AKdDAno=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Feel The Power (From "Yuvarathana ")</h3>
+                            <p class="subtitle">Thaman S, Santhosh Ananddram & Shashank Sheshagiri Feel The Power</p>
+                        </div>
+
+                        <div class="card" data-song="Yeno Yeno Aagide (From _Googly_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/mZ-8Wlik42_C8_LMvPrkPVwgARSVRFjIIRT3W_CmnyQS1qRmnwD4e18F5sDZJN32_l7iFB24uXVbZadAJg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Yeno Yeno Aagide (From "Googly")</h3>
+                            <p class="subtitle">Haricharan, Apoorva Sridhar, & Kaviraj</p>
+                        </div>
+
+                        <div class="card"
+                            data-song="Sapta Sagaradaache Ello - Side A Title Track (From _Sapta Sagaradaache Ello - Side A_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/_1RNgb-PakGUdX-86LZLvFnPl3HykMP-7F7IcMzEKStoZhSHug0M_S52FNkdDA_sVQPE4AiWiSMGG7g=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Sapta Sagaradaache Ello (From "Sapta Sagaradaache Ello - Side A")</h3>
+                            <p class="subtitle">Charan Raj, Dhananjay Ranjan & Kapil Kapilan</p>
+                        </div>
+
+                        <div class="card" data-song="Belakina Kavithe (From _Banaras_) - Sanjith Hegde.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/gCMdBZlojMWAQFH9Adcb3ZRcPvMlKKOVB2waNb18h2JoYFNKOeKxAfsCxZJo9D56exMG8idapVwu-2wd=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Belakina Kavithe (From "Banaras")</h3>
+                            <p class="subtitle">Charan Raj, Dhananjay Ranjan & Kapil Kapilan</p>
+                        </div>
+
+                        <div class="card" data-song="Singara Siriye (From _Kantara_) - B. Ajaneesh Loknath.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/ojfOtzIfkSNTHAP3RCJwKf8T3vkvGhsoxQXBhW-s7IdsKsr8MnN6htPiqFJynXfgSG01AdukM8r1hfU=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Singara Siriye (From "Kantara")</h3>
+                            <p class="subtitle">B. Ajaneesh Loknath, Vijay Prakash, Ananya Bhat & Nagraj Panar Valtur
+                            </p>
+                        </div>
+
+                        <div class="card" data-song="Ra Ra Rakkamma (From _Vikrant Rona_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/8BVenOr1ouOZsE4BJJgm0dECn-UvZhWPdOUhd-d9ZytuEgs_P-r8GW-jV7Fx-Cm9Nfm5omC8ykBF1bFV=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Ra Ra Rakkamma (From "Vikrant Rona")</h3>
+                            <p class="subtitle">Nakash Aziz & Sunidhi Chauhan</p>
+                        </div>
+
+                        <div class="card" data-song="Arere Avala Naguva.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/pf46H6-0HZPUmLGDCkUMnYXkM-fe7AoUk9D3Q05HVBlIK0ddeTu7v_wS0P7uG34gha109TXwH8zhBC2Z9Q=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Arere Avala Naguva (From "Sa.Hi.Pra.Shaale, Kasaragodu")</h3>
+                            <p class="subtitle">Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Rudhira Dhaara (From _Bagheera_) - B. Ajaneesh Loknath.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/-9RNSPJcvxhQUmWjQw1p0petiL6i8AZ_lBCt_0gkiLX1FdagECf4miO5p4zRAZSzjZ_hlxDPnvOA3KI=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Rudhira Dhaara (From "Bagheera")</h3>
+                            <p class="subtitle">B. Ajaneesh Loknath & Aniruddha Sastry Rudhira Dhaara</p>
+                        </div>
+
+                        <div class="card" data-song="Dwapara (From _Krishnam Pranaya Sakhi_) - Jaskaran Singh.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/nu9ca8u4KmT63rg7jZe5Hm34_IGHjAAr7bXVh2OE5q4lCWYMThJYpZUWK1GBKGPsd9ZsxhHRtaBFwEnD=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Dwapara (From "Krishnam Pranaya Sakhi")</h3>
+                            <p class="subtitle">Jaskaran Singh Krishnam Pranaya Sakhi</p>
+                        </div>
+
+                        <div class="card" data-song="Danks Anthem (From _Su From So_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/AQVghsPKkgPPm3d8eg3vtKCx7w_I00U9POuGAHEZ_bx1ikzcZwE0I3ini7Gry1dKOydYxE7_pyTvA22OGg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Danks Anthem (From "Su From So")</h3>
+                            <p class="subtitle">Sumedh K, Raj B Shetty & Anurag Kulkarni</p>
+                        </div>
+
+                        <div class="card" data-song="Mungaru Maleyalli - From _Andondittu Kaala_ - Sid Sriram.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/JjSm7DQuK0KYUcDzXCOMmir9GduyjX43wfhIdmjjbE0YBshpMZPHh9HDCqKXk9COYBq6x4iWFZ-wEfnozA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Mungaru Maleyalli (From "Andondittu Kaala")</h3>
+                            <p class="subtitle">Sid Sriram,Dhananjay Ranjan & Raghavendra V</p>
+                        </div>
+
+                        <div class="card"
+                            data-song="Inkem Inkem Inkem Kaavaale Kannada Version(From Geetha Govindam).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/rJ1El4-dPu-vEErSVI2g34EoLLKCjxeqlzEQDtb2hrWwjurDnqNlZ_eM8y16m2MGNK3xu_0avIQ8J5Z5=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Inkem Inkem Inkem Kaavaale (From "Geetha Govindam")</h3>
+                            <p class="subtitle">Sid Sriram,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Random Sections -->
+                <div class="SongsType">
+                    <h2>Romantic Hits</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Yeno Yeno Aagide (From _Googly_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/mZ-8Wlik42_C8_LMvPrkPVwgARSVRFjIIRT3W_CmnyQS1qRmnwD4e18F5sDZJN32_l7iFB24uXVbZadAJg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Yeno Yeno Aagide (From "Googly")</h3>
+                            <p class="subtitle">Haricharan, Apoorva Sridhar, & Kaviraj</p>
+                        </div>
+
+                        <div class="card" data-song="Manasilaayo (From _Vettaiyan_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/NZtKRxkwbd8aJmUIZT3KX04bE3baAgFuma3V0g-bzi5t3Bayw0bUyBSILB9exyvw8CMxJMV-nkqmSWL4=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Manasilaayo (From "Vettaiyan")</h3>
+                            <p class="subtitle">Anirudh Ravichander, Malaysia Vasudevan, Yugendran Vasudevan & Deepthi
+                                Suresh</p>
+                        </div>
+
+                        <div class="card" data-song="Pardesiya - From Param Sundari - Sachin-Jigar.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02d5754cde395f5c46792186c7" alt="">
+                            <h3 class="title">Pardesiya - From "Param Sundari"</h3>
+                            <p class="subtitle">Sachin-Jigar, Krishnakali Saha, Sonu Nigham, Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Dwapara (From _Krishnam Pranaya Sakhi_) - Jaskaran Singh.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/nu9ca8u4KmT63rg7jZe5Hm34_IGHjAAr7bXVh2OE5q4lCWYMThJYpZUWK1GBKGPsd9ZsxhHRtaBFwEnD=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Dwapara (From "Krishnam Pranaya Sakhi")</h3>
+                            <p class="subtitle">Jaskaran Singh Krishnam Pranaya Sakhi</p>
+                        </div>
+
+                        <div class="card" data-song="Belakina Kavithe (From _Banaras_) - Sanjith Hegde.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/gCMdBZlojMWAQFH9Adcb3ZRcPvMlKKOVB2waNb18h2JoYFNKOeKxAfsCxZJo9D56exMG8idapVwu-2wd=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Belakina Kavithe (From "Banaras")</h3>
+                            <p class="subtitle">Charan Raj, Dhananjay Ranjan & Kapil Kapilan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>Party Anthems</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Vaathi Coming (From _Master_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/pkXMp7DyktWsOkxNaCfZMx4_7CX0KB5iwNb5mjpuQ34XEF-V_xnnG5q9zggmhEbh3o8kEtm61tpZvrqe0A=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Vaathi Coming (From "Master")</h3>
+                            <p class="subtitle">Anirudh Ravichander & Gana Balachandar</p>
+                        </div>
+
+                        <div class="card" data-song="Uyi Amma - From _Azaad_.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/h1LMB4t0dFgZXZrECr1yF59r_k51Vrihwc1QwinVl3ARrElIkepW34u1Ipp-fIFCgi1Y7lOeQGXTSwU=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Uyi Amma (From "Azaad")</h3>
+                            <p class="subtitle">Amit Trivedi Madhubanti Bagchi Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Danks Anthem (From _Su From So_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/AQVghsPKkgPPm3d8eg3vtKCx7w_I00U9POuGAHEZ_bx1ikzcZwE0I3ini7Gry1dKOydYxE7_pyTvA22OGg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Danks Anthem (From "Su From So")</h3>
+                            <p class="subtitle">Sumedh K, Raj B Shetty & Anurag Kulkarni</p>
+                        </div>
+
+                        <div class="card" data-song="Salambala (From _Madharaasi_) (Tamil) - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Lzgd7Kn6caC02A-JooYp8bl5_ynpk-2AeGut31T5lCq1GXNLeOPYnJLtPIjwKnAl2_GEsREWjH-pUQai=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Salambala (From "Madharaasi") (Tamil)</h3>
+                            <p class="subtitle">Anirudh Ravichander & Sai Abhyankar</p>
+                        </div>
+
+                        <div class="card" data-song="Beast Mode (From _Beast_) - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/qxkprBC3H2RdudbaaWC8mN9FOej5BeN4ZP6grYSjQl-nhiAFW_KJ2OvIRf8YzAYtxJD0C8AHGzLtFQfw=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Beast Mode (From "Beast")</h3>
+                            <p class="subtitle">Anirudh Ravichander</p>
+                        </div>
+
+                        <div class="card" data-song="Coolie Disco (From Coolie).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/rEP8DGXzEu4hQlgTKlKMpJAVH4_hKne4nGq-G-x_w13k--GA2co00q_qNuJuKU_qj6p7GgXWadTdnA8g=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Coolie Disco (From "Coolie Movie")</h3>
+                            <p class="subtitle">Anirudh Ravichander Coolie (Original Motion Picture Soundtrack) 2025</p>
+                        </div>
+
+                        <div class="card" data-song="Ra Ra Rakkamma (From _Vikrant Rona_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/8BVenOr1ouOZsE4BJJgm0dECn-UvZhWPdOUhd-d9ZytuEgs_P-r8GW-jV7Fx-Cm9Nfm5omC8ykBF1bFV=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Ra Ra Rakkamma (From "Vikrant Rona")</h3>
+                            <p class="subtitle">Nakash Aziz & Sunidhi Chauhan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>Top 2025 Tracks</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Aavan Jaavan (From _WAR 2_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/CpHtlQNWV3fThtKbZoKuhQ3x3u4BrLPi_3lNG4SXYcbDKK7_Cm9ohUakjbMvVXBMke0_1Yce6-4znJyASA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Aavan Jaavan (From "WAR 2")</h3>
+                            <p class="subtitle">Arijit Singh & Nikhita Gandhi</p>
+                        </div>
+
+                        <div class="card" data-song="Mungaru Maleyalli - From _Andondittu Kaala_ - Sid Sriram.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/JjSm7DQuK0KYUcDzXCOMmir9GduyjX43wfhIdmjjbE0YBshpMZPHh9HDCqKXk9COYBq6x4iWFZ-wEfnozA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Mungaru Maleyalli (From "Andondittu Kaala")</h3>
+                            <p class="subtitle">Sid Sriram, Dhananjay Ranjan & Raghavendra V</p>
+                        </div>
+
+                        <div class="card" data-song="Salambala (From _Madharaasi_) (Tamil) - Anirudh Ravichander.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Lzgd7Kn6caC02A-JooYp8bl5_ynpk-2AeGut31T5lCq1GXNLeOPYnJLtPIjwKnAl2_GEsREWjH-pUQai=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Salambala (From "Madharaasi") (Tamil)</h3>
+                            <p class="subtitle">Anirudh Ravichander & Sai Abhyankar</p>
+                        </div>
+
+                        <div class="card" data-song="Pardesiya - From Param Sundari - Sachin-Jigar.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02d5754cde395f5c46792186c7" alt="">
+                            <h3 class="title">Pardesiya - From "Param Sundari"</h3>
+                            <p class="subtitle">Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Firestorm (From _They Call Him OG_) - Thaman S.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Y1-ahyzQA-suxg3j35pMrnM1jsg5HLakDM6lTqbKzn1GcLmDeTi8QVoCLz2KHVfR49TPuSMu4dT-VKsL=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Firestorm (From "They Call Him OG")</h3>
+                            <p class="subtitle">Thaman S STR Raja Kumari Deepak Blue</p>
+                        </div>
+
+                        <div class="card" data-song="Bheegi Saree (From Param Sundari).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/SMJl0wXXAkzpHAELBmSzs35nb8GvkIewvjAJIE0DWS_A390L6qny-90P6jx1xW5-gf7SKEiv9YN8jFRa7w=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Bheegi Saree (From "Param Sundari")</h3>
+                            <p class="subtitle">Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Saiyaara (From _Saiyaara_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/LbSZO8GtotJrdk49H0xQuB7rZD2DpdyJO_it31_XrQ_AMdoKG67VDS33JgZjn02f4C6kOgtvc8S4dfUR=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">SAIYAARA (From "SAIYAARA")</h3>
+                            <p class="subtitle">Arijit Singh & Mithoon</p>
+                        </div>
+
+                        <div class="card" data-song="Coolie Disco (From Coolie).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/rEP8DGXzEu4hQlgTKlKMpJAVH4_hKne4nGq-G-x_w13k--GA2co00q_qNuJuKU_qj6p7GgXWadTdnA8g=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Coolie Disco (From "Coolie Movie")</h3>
+                            <p class="subtitle">Anirudh Ravichander Coolie (Original Motion Picture Soundtrack)2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>Feel Good Tunes</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Arere Avala Naguva.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/pf46H6-0HZPUmLGDCkUMnYXkM-fe7AoUk9D3Q05HVBlIK0ddeTu7v_wS0P7uG34gha109TXwH8zhBC2Z9Q=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Arere Avala Naguva (From "Sa.Hi.Pra.Shaale, Kasaragodu")</h3>
+                            <p class="subtitle">Sachin-Jigar, Krishnakali Saha, Sonu Nigham, Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Nee Singam Dhan - Vocals Only - A.R. Rahman.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/YIMTS4gz8nZKOYuxoiTHRdVq80lGtQdYeE5G4uT7ZZA6n5qOhKUuSB5Js74X2kJD3YZYGI3X4OQ56tWs=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Nee Singam Dhan (Vocals Only)</h3>
+                            <p class="subtitle">A.R. Rahman & Sid Sriram</p>
+                        </div>
+
+                        <div class="card" data-song="Dwapara (From _Krishnam Pranaya Sakhi_) - Jaskaran Singh.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/nu9ca8u4KmT63rg7jZe5Hm34_IGHjAAr7bXVh2OE5q4lCWYMThJYpZUWK1GBKGPsd9ZsxhHRtaBFwEnD=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Dwapara (From "Krishnam Pranaya Sakhi")</h3>
+                            <p class="subtitle">Jaskaran Singh Krishnam Pranaya Sakhi</p>
+                        </div>
+
+                        <div class="card" data-song="Belakina Kavithe (From _Banaras_) - Sanjith Hegde.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/gCMdBZlojMWAQFH9Adcb3ZRcPvMlKKOVB2waNb18h2JoYFNKOeKxAfsCxZJo9D56exMG8idapVwu-2wd=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Belakina Kavithe (From "Banaras")</h3>
+                            <p class="subtitle">Charan Raj, Dhananjay Ranjan & Kapil Kapilan</p>
+                        </div>
+
+                        <div class="card" data-song="Apudo Ipudo - Siddharth Bommarillu 2006.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/HFO-WSrGUblmzQTkYQq8apQY4yaSc4lQAuT6SssMma5OWAch5oBCrBlyWWKXc-Z2mOaWrw09WCbarP6J0A=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Apudo Ipudo</h3>
+                            <p class="subtitle">Apudo Ipudo Siddharth Bommarillu 2006</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>Evergreen Melodies</h2>
+                    <div class="cardcontainer">
+                        <div class="card" data-song="Pardesiya - From Param Sundari - Sachin-Jigar.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02d5754cde395f5c46792186c7" alt="">
+                            <h3 class="title">Pardesiya - From "Param Sundari"</h3>
+                            <p class="subtitle">Sachin-Jigar, Krishnakali Saha, Sonu Nigham, Amitabh Bhattacharya</p>
+                        </div>
+
+                        <div class="card" data-song="Dwapara (From _Krishnam Pranaya Sakhi_) - Jaskaran Singh.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/nu9ca8u4KmT63rg7jZe5Hm34_IGHjAAr7bXVh2OE5q4lCWYMThJYpZUWK1GBKGPsd9ZsxhHRtaBFwEnD=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Dwapara (From "Krishnam Pranaya Sakhi")</h3>
+                            <p class="subtitle">Jaskaran Singh Krishnam Pranaya Sakhi</p>
+                        </div>
+
+                        <div class="card" data-song="Belakina Kavithe (From _Banaras_) - Sanjith Hegde.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/gCMdBZlojMWAQFH9Adcb3ZRcPvMlKKOVB2waNb18h2JoYFNKOeKxAfsCxZJo9D56exMG8idapVwu-2wd=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Belakina Kavithe (From "Banaras")</h3>
+                            <p class="subtitle">Charan Raj, Dhananjay Ranjan & Kapil Kapilan</p>
+                        </div>
+
+                        <div class="card" data-song="Yeno Yeno Aagide (From _Googly_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/mZ-8Wlik42_C8_LMvPrkPVwgARSVRFjIIRT3W_CmnyQS1qRmnwD4e18F5sDZJN32_l7iFB24uXVbZadAJg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Yeno Yeno Aagide (From "Googly")</h3>
+                            <p class="subtitle">Haricharan, Apoorva Sridhar, & Kaviraj</p>
+                        </div>
+
+                        <div class="card" data-song="Aavan Jaavan (From _WAR 2_).mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/CpHtlQNWV3fThtKbZoKuhQ3x3u4BrLPi_3lNG4SXYcbDKK7_Cm9ohUakjbMvVXBMke0_1Yce6-4znJyASA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Aavan Jaavan (From "WAR 2")</h3>
+                            <p class="subtitle">Arijit Singh & Nikhita Gandhi</p>
+                        </div>
+
+                        <div class="card" data-song="Mungaru Maleyalli - From _Andondittu Kaala_ - Sid Sriram.mp3">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/JjSm7DQuK0KYUcDzXCOMmir9GduyjX43wfhIdmjjbE0YBshpMZPHh9HDCqKXk9COYBq6x4iWFZ-wEfnozA=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Mungaru Maleyalli (From "Andondittu Kaala")</h3>
+                            <p class="subtitle">Sid Sriram, Dhananjay Ranjan & Raghavendra V</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="SongsType">
+                    <h2>India's Biggest Hits</h2>
+                    <div class="cardcontainer">
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/xMk8doYI7x7WszXYYGACenFk407G5B-_dOEG1f3p8AfAsBHsqmLlVgkXnhVM-F1vVkcy2z-NKWuiALo=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Kollywood Dance Hitlist</h3>
+                            <p class="subtitle">Anirudh Ravichander, Arivu, Subhalashini</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Z4bjhJih1r8R7DO_lQpc0PL84oJ7TIuLu0yPaQOPxAI4ZpN7widyuQg8eTqQlY0pmNrObmLo15yWj93q=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">I-Pop South</h3>
+                            <p class="subtitle">Sai Abhyankkar, Paal Dabba, Sahi Siva</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/Xv22St5IaW2oIlYhGnt0c8dy4DXFauRzeBjhwHuypk-txwTlZI5cSGeeg9Qf9F0B2ByS6j8fbzg4Kg=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Tollywood Hitlist</h3>
+                            <p class="subtitle">Anirudh Ravichander, Devi Sri Prasad</p>
+                        </div>
+
+                        <div class="card" data-folder="Sandalwood Hits">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhF6104R0d57iHS2VXN4JVvTUy_52QbS4_ag&s"
+                                alt="">
+                            <h3 class="title">Sandalwood Love Hitlist</h3>
+                            <p class="subtitle">G.V. Prakash Kumar, Yuvan Shankar Raja</p>
+
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/VoJ3ZRSyOYVcvD6Zg0s_3ygZi9ze61rLa4dkl44ywIq6dIbHldGH4vw19_Xh9a8CnRzF8xIGLXP6P5U=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Mollywood Romance Hitlist</h3>
+                            <p class="subtitle">Sai Pallavi, Leon James, Nakash Aziz</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/lGWtJLqWMZKfI2vLqeul_57nj07n_sa5vHYuvEtfmJNjyknzCHFPWilr3at97lFdERGN7a7Cx7eXoS4=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Kollywood Hitlist</h3>
+                            <p class="subtitle">Anirudh Ravichander, G.V. Prakash Kumar</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/m0IDKWZXoaLg5PuIoT3TCFc1gLN7yy-_Qmy3BCtsuV2mHQo_jIEiXx1zGehgMoCg-5maW2HICwaCHSo=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Tollywood Dance Hitlist</h3>
+                            <p class="subtitle">Artist Names...</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="play"><img src="playbutton.svg" alt=""></div>
+                            <img src="https://lh3.googleusercontent.com/c1sN6qbYiV_FgE9_RtVOtJyg2-qGvxFbudgU_Z3zzICbH07niwdH4Eo2vJz7ALkPrbNaYHMyp-Gx03k=w544-h544-l90-rj"
+                                alt="">
+                            <h3 class="title">Bollywood Hitlist</h3>
+                            <p class="subtitle">Artist Names...</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        <div class="playbar hidden">
+            <div class="seekbar">
+                <input type="range" id="seekbar" value="0" max="100">
+            </div>
+            <div class="musicbar">
+                <div class="songinfo">
+                    Nothing is playing
+                </div>
+                <div class="songbuttons">
+                    <img id="previous" src="previousong.svg" alt="">
+                    <img id="play" src="play.svg" alt="play">
+                    <img id="next" src="next.svg" alt="">
+                    <div class="volume">
+                        <img id="volumeIcon" src="volume.svg" alt="">
+
+                        <input type="range" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </div>
+                <div class="songtime">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

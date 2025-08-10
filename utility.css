@@ -1,0 +1,240 @@
+.border {
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-gray {
+    background-color: #121212;
+    color: white;
+}
+
+.rounded {
+    border-radius: 7px;
+}
+
+.m-1 {
+    margin: 5px;
+}
+
+.p-1 {
+    padding: 5px;
+}
+
+.home {
+    background-color: black;
+}
+
+/* Apply to the whole website */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #111;  /* Very dark background */
+    border-radius: 10px;
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #555, #aaa); /* Stylish gradient */
+    border-radius: 10px;
+    border: 2px solid #111; /* Match background for a clean edge */
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #888, #fff);
+}
+
+/* Optional for horizontal scrollbar */
+::-webkit-scrollbar-horizontal {
+    height: 8px;
+    
+}
+.otherbtns{
+    background-color: black;
+    color: rgb(179, 179, 179);
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.otherbtns:hover{
+    color: white;
+}
+
+/*chatgpt Style */
+
+.music-card {
+  display: flex;
+  align-items: center;
+  background: #121212;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 300px;     /* Fixed width */
+  height: 50px;     /* Fixed height */
+  position: relative;
+  transition: background 0.3s;
+  overflow: hidden;
+}
+
+.music-card:hover {
+  background: #1e1e1e;
+}
+
+.cover {
+  position: relative;
+  width: 25px;
+  flex-shrink: 0;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.play-icon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.music-card:hover .play-icon {
+  display: block;
+}
+
+.info {
+  margin-left: 12px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px; /* ✅ Adds spacing between title and subtitle */
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.play {
+  position: absolute;
+  width: 45px;
+  right: 18px;
+  bottom: 55px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover .play {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 140px;
+  }
+  .title, .subtitle {
+    font-size: 12px;
+  }
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.hidden{
+  display: none;
+}
+
+
+#seekbar {
+    height: 6px;
+    margin: 1px 0;
+}
+
+#seekbar::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #1ED760;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+#next:active {
+    transform: scale(0.9);
+    background-color: #1db954; /* Green for next */
+}
+
+#previous:active {
+    transform: scale(0.9);
+    background-color: #ff4d4d; /* Red for previous */
+}
+
+.footer {
+  background-color: #000; /* Dark background */
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 13px; /* row gap & column gap */
+  font-family: Arial, sans-serif;
+  color: #b3b3b3;
+  font-size: 13px;
+  width: 100%;
+}
+
+.footer div, .footer a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+.footer a:hover{
+  text-decoration: underline;
+}
