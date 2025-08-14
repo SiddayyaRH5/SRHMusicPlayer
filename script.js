@@ -20,7 +20,7 @@ let audio = new Audio();
 let songs=[];
 
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:3000/songs/");
+    let a = await fetch("./songs/");
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -46,7 +46,7 @@ function cleanSongName(filename) {
 
 const playMusic = (track) => {
     audio.pause();
-    audio.src = "/songs/" + track;
+    audio.src = "./songs/" + track;
     audio.load();
     audio.play();
 
