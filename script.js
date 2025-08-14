@@ -70,8 +70,8 @@ async function main() {
     let songUL = document.querySelector(".songlist ul");
     songUL.innerHTML = "";
     for (const song of songs) {
-        let displayName = cleanSongName(song);
-        songUL.innerHTML += `
+    let displayName = cleanSongName(song);
+    songUL.innerHTML += `
         <li data-song="${song}">
             <div class="music-card">
                 <div class="cover">
@@ -87,16 +87,15 @@ async function main() {
             </div>
         </li>
     `;
-    }
-    
+}
 
-    // ✅ Use the real filename
-    document.querySelectorAll(".songlist li").forEach(e => {
-        e.addEventListener("click", () => {
-            const filename = e.getAttribute("data-song");
-            playMusic(filename);
-        });
-    });
+// ✅ Use the real filename
+document.querySelectorAll(".songlist li").forEach(e => { 
+    e.addEventListener("click", () => { 
+        const filename = e.getAttribute("data-song"); 
+        playMusic(filename); 
+    }); 
+});
 
 
     play.addEventListener("click", () => {
