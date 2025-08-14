@@ -121,7 +121,6 @@ async function main() {
     //Listen for time update event
     audio.addEventListener("timeupdate", () => {
         if (!isNaN(audio.duration)) {
-            console.log(audio.currentTime, audio.duration);
             document.querySelector(".songtime").innerHTML = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`
         }
     })
