@@ -23,15 +23,16 @@ async function getSongs() {
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName("a");
-    let songs = [];
+    songs = []; // ✅ reset the global array
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split("/").pop()); // ✅ safer filename
+            songs.push(decodeURIComponent(element.href.split("/").pop())); // ✅ decode %20 to spaces
         }
     }
     return songs;
 }
+
 
 function cleanSongName(filename) {
     return filename
@@ -87,6 +88,7 @@ async function main() {
         </li>
     `;
     }
+    
 
     // ✅ Use the real filename
     document.querySelectorAll(".songlist li").forEach(e => {
