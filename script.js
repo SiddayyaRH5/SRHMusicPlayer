@@ -69,18 +69,18 @@ async function main() {
 
     let songUL = document.querySelector(".songlist ul");
     songUL.innerHTML = "";
-    for (const song of songs) {
+   for (const song of songs) {
     let displayName = cleanSongName(song);
     songUL.innerHTML += `
-        <li data-song="${song}">
+        <li data-file="${song}">
             <div class="music-card">
                 <div class="cover">
-                    <img src="./music.svg" alt="">
+                    <img src="music.svg" alt="">
                     <div class="play-icon">▶</div>
                 </div>
                 <div class="info">
                     <div class="title" title="${displayName}">${displayName}</div>
-                    <div class="subtitle" title="Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya">
+                    <div class="subtitle">
                         Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya
                     </div>
                 </div>
@@ -88,6 +88,7 @@ async function main() {
         </li>
     `;
 }
+
 
 // ✅ Use the real filename
 document.querySelectorAll(".songlist li").forEach(e => { 
