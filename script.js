@@ -29,7 +29,7 @@ async function getSongs() {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split("./songs/")[1]);
+            songs.push(element.href.split("/").pop());
         }
     }
     return songs;
