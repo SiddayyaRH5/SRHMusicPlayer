@@ -65,27 +65,26 @@ async function main() {
     let currentSong;
     songs = await getSongs();
 
-    let songUL = document.querySelector(".songlist ul");
-    songUL.innerHTML = "";
-    for (const song of songs) {
-        let displayName = cleanSongName(song);
-        songUL.innerHTML += `
-            <li>
-                <div class="music-card">
-                    <div class="cover">
-                        <img src="./music.svg" alt="">
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="info">
-                        <div class="title" title="${displayName}">${displayName}</div>
-                        <div class="subtitle" title="Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya">
-                            Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya
-                        </div>
+let songUL = document.querySelector(".songlist ul");
+for (const song of songs) {
+    let displayName = cleanSongName(song);
+    songUL.innerHTML += `
+        <li>
+            <div class="music-card">
+                <div class="cover">
+                    <img src="music.svg" alt="">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="info">
+                    <div class="title" title="${displayName}">${displayName}</div>
+                    <div class="subtitle" title="Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya">
+                        Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya
                     </div>
                 </div>
-            </li>
-        `;
-    }
+            </div>
+        </li>
+    `;
+}
 
     document.querySelectorAll(".songlist li").forEach(e => {
         e.addEventListener("click", () => {
