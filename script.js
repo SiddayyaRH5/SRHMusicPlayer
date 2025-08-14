@@ -1,5 +1,6 @@
 console.log("Let Write javascript");
 
+
 function formatTime(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
