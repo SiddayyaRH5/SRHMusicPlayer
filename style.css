@@ -366,7 +366,10 @@ body {
 .heading img{
     width: 30px;
 }
-
+.library{
+    height: 85vh;
+    position: relative;
+}
     .right {
         width: 100vw;
     }
