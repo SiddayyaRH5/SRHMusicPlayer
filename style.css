@@ -354,6 +354,18 @@ body {
         display: block;
         cursor: pointer;
     }
+        .heading {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #b3b3b3;
+    padding: 10px;
+}
+.heading img{
+    width: 30px;
+}
 
     .right {
         width: 100vw;
