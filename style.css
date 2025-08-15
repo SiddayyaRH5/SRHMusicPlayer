@@ -332,7 +332,7 @@ body {
         left: -120%;
         transition: all .3s;
         z-index: 1;
-        width: 460px;
+        width: 400px;
     }
 
     .left .logo img {
