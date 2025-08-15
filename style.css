@@ -427,7 +427,6 @@ body {
     }
 
     .playbar {
-        display: flex !important;
         justify-content: center;
         position: fixed;
         bottom: -1;
