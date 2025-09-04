@@ -1,9 +1,8 @@
-console.log("Let Write javascript");
+console.log("Let's Write JavaScript");
 
 function formatTime(seconds) {
-    if (isNaN(seconds) || seconds < 0) {
-        return "00:00";
-    }
+    if (isNaN(seconds) || seconds < 0) return "00:00";
+
     let mins = Math.floor(seconds / 60);
     let secs = Math.floor(seconds % 60);
 
@@ -16,7 +15,7 @@ function formatTime(seconds) {
 let audio = new Audio();
 let songs = [];
 
-// ✅ Extract only filename from audio.src safely
+// ✅ Extract only filename from full audio.src
 function getCurrentSongFilename() {
     return audio.src.substring(audio.src.lastIndexOf("/") + 1);
 }
@@ -39,8 +38,8 @@ async function getSongs() {
 
 function cleanSongName(filename) {
     return filename
-        .replaceAll("%20", " ")
-        .replace(".mp3", "")
+        .replaceAll("%20", " ") // Replace %20 with space
+        .replace(".mp3", "")    // Remove extension
         .replaceAll("_", "")
         .trim();
 }
@@ -67,31 +66,30 @@ const playMusic = (track) => {
 };
 
 async function main() {
-    // get songs list
     songs = await getSongs();
 
     let songUL = document.querySelector(".songlist ul");
     for (const song of songs) {
         let displayName = cleanSongName(song);
         songUL.innerHTML += `
-        <li data-song="${song}">
-            <div class="music-card">
-                <div class="cover">
-                    <img src="./music.svg" alt="">
-                    <div class="play-icon">▶</div>
-                </div>
-                <div class="info">
-                    <div class="title" title="${displayName}">${displayName}</div>
-                    <div class="subtitle" title="Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya">
-                        Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya
+            <li data-song="${song}">
+                <div class="music-card">
+                    <div class="cover">
+                        <img src="./music.svg" alt="">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="info">
+                        <div class="title" title="${displayName}">${displayName}</div>
+                        <div class="subtitle" title="Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya">
+                            Sachin-Jigar,Krishnakali Saha,Sonu Nigham,Amitabh Bhattacharya
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
-    `;
+            </li>
+        `;
     }
 
-    // ✅ Play song on click
+    // Click on song to play
     document.querySelectorAll(".songlist li").forEach(e => {
         e.addEventListener("click", () => {
             const filename = e.getAttribute("data-song");
@@ -99,7 +97,7 @@ async function main() {
         });
     });
 
-    // ✅ Play/Pause button
+    // Play / Pause
     play.addEventListener("click", () => {
         if (audio.paused) {
             audio.play();
@@ -110,12 +108,10 @@ async function main() {
         }
     });
 
-    // ✅ Update time + seekbar
+    // Time update (seekbar + display)
     audio.addEventListener("timeupdate", () => {
-        if (!isNaN(audio.duration)) {
-            document.querySelector(".songtime").innerHTML =
-                `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-        }
+        document.querySelector(".songtime").innerHTML =
+            `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
 
         let progress = (audio.currentTime / audio.duration) * 100;
         document.getElementById("seekbar").value = progress || 0;
@@ -126,7 +122,7 @@ async function main() {
         audio.currentTime = (seekPercent / 100) * audio.duration;
     });
 
-    // ✅ Hamburger menu
+    // Hamburger menu
     document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0";
     });
@@ -135,37 +131,30 @@ async function main() {
         document.querySelector(".left").style.left = "-120%";
     });
 
-    // ✅ Previous button
+    // Previous button
     previous.addEventListener("click", () => {
         audio.pause();
         let index = songs.indexOf(getCurrentSongFilename());
-        if (index > 0) {
-            playMusic(songs[index - 1]);
-        }
+        if (index > 0) playMusic(songs[index - 1]);
     });
 
-    // ✅ Next button
+    // Next button
     next.addEventListener("click", () => {
         audio.pause();
         let index = songs.indexOf(getCurrentSongFilename());
-        if (index < songs.length - 1) {
-            playMusic(songs[index + 1]);
-        }
+        if (index < songs.length - 1) playMusic(songs[index + 1]);
     });
 
-    // ✅ Auto-play next when song ends
+    // Auto-play next song when ended
     audio.addEventListener("ended", () => {
         audio.pause();
         let index = songs.indexOf(getCurrentSongFilename());
-        if (index < songs.length - 1) {
-            playMusic(songs[index + 1]);
-        }
+        if (index < songs.length - 1) playMusic(songs[index + 1]);
     });
 
-    // ✅ Volume control
+    // Volume control
     document.querySelector(".volume input").addEventListener("change", (e) => {
         audio.volume = parseInt(e.target.value) / 100;
-
         if (audio.volume <= 0) {
             volumeIcon.src = "mute.svg";
         } else {
@@ -173,7 +162,7 @@ async function main() {
         }
     });
 
-    // ✅ Mute/Unmute button
+    // Mute / Unmute
     document.querySelector(".volume>img").addEventListener("click", e => {
         if (e.target.src.includes("volume.svg")) {
             e.target.src = e.target.src.replace("volume.svg", "mute.svg");
@@ -186,14 +175,12 @@ async function main() {
         }
     });
 
-    // ✅ Card click play
-    const songCards = document.querySelectorAll(".card");
+    // Extra song cards click (if present)
+    const songCards = document.querySelectorAll('.card');
     songCards.forEach(card => {
-        card.addEventListener("click", () => {
-            const songSrc = card.getAttribute("data-song");
-            if (songSrc) {
-                playMusic(songSrc);
-            }
+        card.addEventListener('click', () => {
+            const songSrc = card.getAttribute('data-song');
+            if (songSrc) playMusic(songSrc);
         });
     });
 }
