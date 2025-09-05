@@ -24,8 +24,10 @@ A **responsive music player web app** built with **HTML, CSS, and JavaScript**, 
 <img width="1885" height="859" alt="Screenshot 2025-09-06 020944" src="https://github.com/user-attachments/assets/9ede3577-38ea-4d57-a290-45106c6abc21" />
 
 
-- **Playlist Example**  
-![Playlist Screenshot](./screenshots/playlist.png)  
+- **Playlist Example**
+  
+<img width="1399" height="804" alt="Screenshot 2025-09-06 021007" src="https://github.com/user-attachments/assets/d7fe510c-6441-4674-89cb-363431947354" />
+
 
 ---
 
