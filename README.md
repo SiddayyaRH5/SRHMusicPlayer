@@ -1,4 +1,4 @@
-SRH Music Player
+# SRH MUSIC PLAYER
 
 A responsive music player web app built with HTML, CSS, and JavaScript, featuring a modern UI, smooth playback, and playlist management. The app is designed with simplicity, responsiveness, and user experience in mind, providing seamless playback across both desktop and mobile devices.
 
