@@ -28,6 +28,9 @@ A **responsive music player web app** built with **HTML, CSS, and JavaScript**, 
   
 <img width="1399" height="804" alt="Screenshot 2025-09-06 021007" src="https://github.com/user-attachments/assets/d7fe510c-6441-4674-89cb-363431947354" />
 
+- **Mobile View**
+<img width="614" height="877" alt="Screenshot 2025-09-06 021104" src="https://github.com/user-attachments/assets/76eaa7cc-e660-4739-88e5-570d833e2fb0" />
+
 
 ---
 
