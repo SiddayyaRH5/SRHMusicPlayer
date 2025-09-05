@@ -34,7 +34,8 @@ A **responsive music player web app** built with **HTML, CSS, and JavaScript**, 
 
 ## 🖼️ Demo
 
-Website linl: https://srhmusicplayer.netlify.app/
+Website link: https://srhmusicplayer.netlify.app/
+-
 Demo video :
 
 
