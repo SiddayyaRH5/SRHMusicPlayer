@@ -30,9 +30,13 @@ A **responsive music player web app** built with **HTML, CSS, and JavaScript**, 
 
 - **Mobile View**
 <img width="614" height="877" alt="Screenshot 2025-09-06 021104" src="https://github.com/user-attachments/assets/76eaa7cc-e660-4739-88e5-570d833e2fb0" />
-
-
 ---
+
+## 🖼️ Demo
+
+Website linl: https://srhmusicplayer.netlify.app/
+Demo video :
+
 
 ## 🛠️ Technologies Used  
 
@@ -224,5 +228,4 @@ button:hover {
 
 ---
 
-(Additional filler documentation, FAQs, best practices, code examples, and explanations can be repeated and expanded to reach ~300 lines in a real README.)
 
