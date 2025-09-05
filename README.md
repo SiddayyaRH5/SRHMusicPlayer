@@ -19,8 +19,10 @@ A **responsive music player web app** built with **HTML, CSS, and JavaScript**, 
 
 > *(Add screenshots of your app here — recommended sizes: 1280x720 for desktop, 375x812 for mobile)*  
 
-- **Home Screen**  
-![Home Screenshot](./screenshots/home.png)  
+- **Home Screen**
+  
+<img width="1885" height="859" alt="Screenshot 2025-09-06 020944" src="https://github.com/user-attachments/assets/9ede3577-38ea-4d57-a290-45106c6abc21" />
+
 
 - **Playlist Example**  
 ![Playlist Screenshot](./screenshots/playlist.png)  
