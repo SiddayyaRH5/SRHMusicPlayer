@@ -1,7 +1,10 @@
 "use strict";
 
 /* SRH Music Player — DOM-driven interactions */
-
+if (window.__srhMusicPlayerInitialized) {
+    console.warn("SRH Music Player already initialized; skipping duplicate script execution.");
+} else {
+window.__srhMusicPlayerInitialized = true;
 document.addEventListener("DOMContentLoaded", () => {
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -206,7 +209,12 @@ document.addEventListener("DOMContentLoaded", () => {
     try { favorites = new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); } catch {}
     try { recentTracks = JSON.parse(localStorage.getItem(RECENTS_KEY) || "[]").slice(0, 20); } catch {}
 
-    const libraryToolbar = document.createElement("div");
+    // Idempotent toolbar creation: prevent duplicate controls if this script is
+    // accidentally included or executed more than once during deployment.
+    // Keep exactly one library toolbar, even if a stale/older page left duplicates.
+    const libraryToolbar = songSections?.querySelector(":scope > .library-toolbar") || document.createElement("div");
+    const isNewLibraryToolbar = !libraryToolbar.isConnected;
+    $$(".library-toolbar").forEach((toolbar) => { if (toolbar !== libraryToolbar) toolbar.remove(); });
     libraryToolbar.className = "library-toolbar";
     libraryToolbar.innerHTML = `
         <div class="library-filters" role="group" aria-label="Filter music library">
@@ -218,9 +226,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <button type="button" id="shuffleToggle" class="player-option" aria-pressed="false" title="Shuffle playback (S)"><i class="fa-solid fa-shuffle"></i> Shuffle</button>
             <button type="button" id="repeatToggle" class="player-option" aria-pressed="false" title="Repeat mode (R)"><i class="fa-solid fa-repeat"></i> Repeat: Off</button>
         </div>`;
-    const heroForToolbar = songSections?.querySelector(".hero");
-    if (heroForToolbar) heroForToolbar.insertAdjacentElement("afterend", libraryToolbar);
-    else songSections?.prepend(libraryToolbar);
+    if (isNewLibraryToolbar) {
+        const heroForToolbar = songSections?.querySelector(".hero");
+        if (heroForToolbar) heroForToolbar.insertAdjacentElement("afterend", libraryToolbar);
+        else songSections?.prepend(libraryToolbar);
+    }
 
     function persistLibraryPrefs() {
         try {
@@ -1050,3 +1060,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (volumeSlider) volumeSlider.value = String(audio.volume * 100);
     setVolumeIcon();
 });
+}

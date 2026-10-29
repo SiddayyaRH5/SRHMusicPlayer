@@ -844,3 +844,67 @@ body.auth-open{overflow:hidden}.auth-overlay[hidden]{display:none!important}
     .library-filters, .playback-options { width:100%; }
     .library-filter, .player-option { flex:1; }
 }
+
+
+/* Mobile card layout fix: show complete cards in a two-column grid instead of
+   clipping the horizontal carousel at the viewport edge. Existing colours retained. */
+@media (max-width: 560px) {
+  .Songs-sections { width: 100%; min-width: 0; box-sizing: border-box; }
+  .SongsType { width: 100%; min-width: 0; overflow: visible; }
+  .cardcontainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 2px 0 12px;
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+  .card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 8px;
+  }
+  .card .cover, .card .album-cover, .card img:first-child {
+    max-width: 100%;
+  }
+  .card .title, .card .subtitle {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card .play {
+    top: auto;
+    right: 12px;
+    bottom: 78px;
+    width: 34px;
+    height: 34px;
+  }
+}
+@media (max-width: 360px) {
+  .cardcontainer { gap: 8px; }
+  .card { padding: 7px; }
+  .card .play { right: 9px; bottom: 75px; width: 31px; height: 31px; }
+}
+
+
+/* Mobile UX: do not show floating play badges on every card by default.
+   Cards remain tappable; show the control for keyboard focus or the currently playing card. */
+@media (hover: none), (max-width: 850px) {
+  .card .play {
+    opacity: 0;
+    transform: translateY(5px);
+    pointer-events: none;
+  }
+  .card:focus-within .play,
+  .card.is-playing .play {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
