@@ -1,0 +1,11 @@
+<svg width="35" height="35" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Speaker box -->
+  <rect x="8" y="24" width="12" height="16" fill="black"/>
+  
+  <!-- Speaker cone -->
+  <polygon points="20,24 32,16 32,48 20,40" fill="black"/>
+  
+  <!-- Mute 'X' symbol -->
+  <line x1="38" y1="22" x2="50" y2="42" stroke="black" stroke-width="3"/>
+  <line x1="50" y1="22" x2="38" y2="42" stroke="black" stroke-width="3"/>
+</svg>

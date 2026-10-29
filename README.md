@@ -1,232 +1,40 @@
-# 🎵 SRH Music Player
-
-A **responsive music player web app** built with **HTML, CSS, and JavaScript**, featuring a modern UI, smooth playback, and playlist management. The app is designed with **simplicity, responsiveness, and user experience** in mind, providing seamless playback across both desktop and mobile devices.  
-
----
-
-## 🚀 Features  
-
-- 🎶 **Custom Audio Controls**: Play, pause, next, previous, mute, volume adjustment  
-- 📃 **Playlist Functionality**: Easily manage and switch between tracks  
-- 📱 **Responsive Design**: Works flawlessly on mobile and desktop  
-- 🌟 **Modern UI**: Sleek interface with animated visuals  
-- 🔄 **Interactive UI**: Real-time updates to the player as tracks change  
-- 🎨 **Clean & Minimal Layout**: Focused on usability  
-
----
-
-## 🖼️ Screenshots  
-
-> *(Add screenshots of your app here — recommended sizes: 1280x720 for desktop, 375x812 for mobile)*  
-
-- **Home Screen**
-  
-<img width="1885" height="859" alt="Screenshot 2025-09-06 020944" src="https://github.com/user-attachments/assets/9ede3577-38ea-4d57-a290-45106c6abc21" />
-
-
-- **Playlist Example**
-  
-<img width="1399" height="804" alt="Screenshot 2025-09-06 021007" src="https://github.com/user-attachments/assets/d7fe510c-6441-4674-89cb-363431947354" />
-
-- **Mobile View**
-<img width="614" height="877" alt="Screenshot 2025-09-06 021104" src="https://github.com/user-attachments/assets/76eaa7cc-e660-4739-88e5-570d833e2fb0" />
----
-
-## 🖼️ Demo
-
-Website link: https://srhmusicplayer.netlify.app/
--
-Demo video :
-
-
-## 🛠️ Technologies Used  
-
-- **Frontend**:  
-  - HTML5  
-  - CSS3  
-  - JavaScript (ES6)  
-
-- **Design**:  
-  - Responsive Web Design  
-  - Animations (CSS & JS)  
-
----
-
-## 📂 Project Structure  
-
-```
-SRH-Music-Player/
-│
-├── index.html           # Main HTML file
-├── style.css            # Stylesheet for layout & design
-├── script.js            # JavaScript for functionality
-│
-├── assets/              # Images, icons, etc.
-│   ├── icons/
-│   └── images/
-│
-├── music/               # Music files (mp3/wav)
-│
-├── screenshots/         # App screenshots
-│
-└── README.md            # Project documentation
-```
-
----
-
-## ⚙️ Installation  
-
-Clone the repo:  
-
-```bash
-git clone https://github.com/SiddayyaRH5/SRHMusicPlayer.git
-```
-
-Open the project folder:  
-
-```bash
-cd SRHMusicPlayer
-```
-
-Run the app by simply opening `index.html` in your browser.  
-
----
-
-## 🎮 Usage  
-
-1. Launch the player by opening `index.html`  
-2. Select a track from the playlist or upload your own  
-3. Use custom controls for play, pause, next, previous, mute, and volume  
-4. Enjoy seamless playback with responsive UI  
-
----
-
-## 🧩 Future Enhancements  
-
-- [ ] Add **dark mode** 🌙  
-- [ ] Support for **drag & drop playlist uploads**  
-- [ ] Integrate with **Spotify API**  
-- [ ] Add **waveform visualizer**  
-- [ ] Offline support using **Service Workers**  
-
----
-
-## 👨‍💻 Author  
-
-- **Siddayya Rudrayya Hiremath**  
-- 📍 Bengaluru, India  
-- [LinkedIn](https://www.linkedin.com/in/siddayyahiremath/)  
-- [GitHub](https://github.com/SiddayyaRH5)  
-
----
-
-## 🤝 Contribution  
-
-Contributions are welcome!  
-
-1. Fork the repo  
-2. Create a new branch (`git checkout -b feature-name`)  
-3. Commit changes (`git commit -m "Added new feature"`)  
-4. Push to branch (`git push origin feature-name`)  
-5. Open a Pull Request  
-
----
-
-## 📜 License  
-
-This project is licensed under the **MIT License** – free to use, modify, and distribute.  
-
----
-
-## 🙌 Acknowledgements  
-
-- HTML5 Audio API documentation  
-- Inspiration from Spotify, YouTube Music  
-- Open-source icons and design references  
-
----
-
-# 📖 Extended Documentation  
-
-## 🔊 Audio Control Functions  
-
-```javascript
-function playTrack() {
-    audio.play();
-}
-
-function pauseTrack() {
-    audio.pause();
-}
-
-function nextTrack() {
-    trackIndex++;
-    loadTrack(trackIndex);
-    playTrack();
-}
-
-function prevTrack() {
-    trackIndex--;
-    loadTrack(trackIndex);
-    playTrack();
-}
-```
-
----
-
-## 🎨 CSS Styling Example  
-
-```css
-.player {
-    background: #111;
-    color: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-button {
-    border: none;
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 0 10px;
-}
-
-button:hover {
-    color: #1db954;
-}
-```
-
----
-
-## 🧪 Testing Scenarios  
-
-- ✅ Play/Pause toggle  
-- ✅ Next/Previous track navigation  
-- ✅ Volume adjustments at different levels  
-- ✅ Playlist updates dynamically  
-- ✅ Mobile responsiveness  
-
----
-
-## 📈 Performance Optimization  
-
-- Optimized CSS for faster rendering  
-- Used async JavaScript for non-blocking execution  
-- Compressed image assets for faster load times  
-- Lazy loading implemented for heavy content  
-
----
-
-## 📚 Learning Outcomes  
-
-- Strengthened knowledge of **HTML5 Audio API**  
-- Improved skills in **JavaScript event handling**  
-- Practiced **responsive web design** with CSS3  
-- Gained experience with **UI/UX design principles**  
-
----
-
-
+# SRH Music Player — DOM-driven Modern Edition with Local Login and Device Songs
+
+## Run locally
+1. Open this folder in VS Code.
+2. Use VS Code Live Server or another localhost server.
+3. Music cards are defined in the `MUSIC_LIBRARY` JavaScript array and generated dynamically using DOM methods.
+
+## Play songs from your phone or computer
+- Open the page and choose **Choose songs from device** under **Your Device Songs**.
+- Select one or more audio files (MP3, M4A, AAC, WAV, OGG and other browser-supported audio formats).
+- Selected songs are added to the page and sidebar for playback, including seek, volume, next and previous controls.
+- Browsers require the user to choose files; the website cannot silently scan all phone storage.
+- Selected files are not uploaded to a server. They remain accessible to the page only while the current page session is active. Choose the files again after reopening the page.
+
+## Local demo accounts
+Accounts and a signed-in state are stored in this browser's localStorage. Passwords use salted PBKDF2-SHA-256 hashes. This is a local demo, not production authentication. Do not reuse a sensitive password.
+
+## Bundled music
+Place MP3 files in `songs/` using exact filenames in each `MUSIC_LIBRARY` item's `song` property. The archive may not include audio files.
+
+## New personal-library and playback features
+- **Favorites:** use the heart on any song card; favorite selections persist in this browser.
+- **Recently played:** see tracks you played most recently (up to 20).
+- **Shuffle:** toggle randomized next-track playback.
+- **Repeat:** cycle between Off, Repeat All, and Repeat One.
+- **Keyboard shortcuts:** `Space` play/pause, `←` / `→` seek by 5 seconds, `M` mute/unmute, `S` shuffle, `R` repeat. Shortcuts pause while typing in a form field.
+- **Search:** filter cards by song title, artist, or filename.
+- **Responsive layout:** filters and playback options wrap for smaller screens.
+
+Favorites and recent history are stored locally in this browser. Device-selected audio files are not persisted; reselect them after reopening the page.
+
+## SRH Video Player (local device media)
+
+Switch to **Video Player** to open video files from your computer or phone. The player includes a multi-file queue, queue search and removal, drag-and-drop, play/pause, previous/next, 10-second skip controls, seek bar, volume/mute, playback speed (0.25×–2×), repeat-one, shuffle, subtitle loading (`.vtt` and basic `.srt` conversion), picture-in-picture (where supported), fullscreen, video-fit modes, screenshot capture (where allowed), and keyboard shortcuts.
+
+- Files are played from temporary browser object URLs. They are **not uploaded** and the selected files/queue are not retained after closing or refreshing the page.
+- Use a current browser and prefer MP4 with H.264/AAC or WebM. Browser playback depends on codec support; browsers generally cannot decode every format supported by desktop VLC, especially some MKV/AVI files.
+- Picture-in-picture, fullscreen, screenshots and some file formats depend on browser/device support. Screenshot capture can be blocked for protected or unsupported video sources.
+- This is a browser-based local media player inspired by common VLC/MX Player capabilities, not a complete replacement for their native apps. It cannot scan device folders silently, access protected media, decode every codec, or provide hardware-specific features without a native application layer.
+- For mobile use, open the site in the browser and choose files through the device file picker. Local files may need to be selected again each session.

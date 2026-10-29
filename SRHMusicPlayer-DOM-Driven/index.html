@@ -1,0 +1,649 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="SRH Music Player — discover trending songs, explore playlists, and enjoy your favorite music in a modern responsive player."
+      name="description"
+    />
+    <meta content="#070b14" name="theme-color" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="utility.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="video-player.css" rel="stylesheet" />
+    <link href="./logo.svg" rel="icon" type="image/svg+xml" />
+    <title>SRH Music Player</title>
+  </head>
+  <body id="top">
+    <div class="container app-shell flex bg-black">
+      <aside class="left sidebar" id="sidebar">
+        <div class="close">
+          <img alt="" class="invert" src="close.svg" width="30px" />
+        </div>
+        <div class="nav-bar">
+          <div class="home bg-gray">
+            <a aria-label="SRH Music Player home" class="brand-lockup" href="#"
+              ><img alt="SRH Music Player logo" src="logo.svg" /><span
+                ><strong>SRH</strong><small>MUSIC PLAYER</small></span
+              ></a
+            >
+            <img alt="home" class="invert" src="home.svg" /> Home
+            <img alt="search" class="invert" src="search.svg" /> Search
+          </div>
+        </div>
+        <div class="library bg-gray">
+          <div class="heading">
+            <img alt="" src="music.svg" />
+            <h3>Your library</h3>
+          </div>
+          <div class="songlist">
+            <ul></ul>
+          </div>
+          <div class="sidebar-note">
+            <span class="status-dot"></span>
+            <span>Made for your everyday soundtrack</span>
+          </div>
+        </div>
+      </aside>
+      <main class="right bg-gray">
+        <div class="header">
+          <img
+            alt=""
+            class="invert hamburger"
+            src="hamburger.svg"
+            width="30px"
+          />
+          <div class="nav"></div>
+          <div class="buttons">
+            <div>
+              <button class="otherbtns">Premium</button>
+              <button class="otherbtns">Support</button>
+              <button class="otherbtns">Download</button>
+              <div class="line"></div>
+              <a draggable="false" href="/download">
+                <span aria-hidden="true"> </span>
+                <span class="invert">
+                  <svg
+                    color="#b3b3b3"
+                    fill="none"
+                    height="24"
+                    viewbox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                      stroke="#141B34"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    ></path>
+                    <path
+                      d="M12 15V8M15.5 12.5002C15.5 12.5002 12.9223 16.0002 12 16.0002C11.0777 16.0002 8.50003 12.5002 8.50003 12.5002"
+                      stroke="#141B34"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    ></path></svg
+                ></span>
+                <span class="otherbtns" id="install-app">Install App</span>
+              </a>
+              <button
+                class="otherbtns signup-trigger"
+                id="signupBtn"
+                type="button"
+              >
+                Sign up
+              </button>
+              <button class="loginbtn" id="loginBtn" type="button">
+                <span>Log in</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="srh-media-switch" role="group" aria-label="Media mode">
+          <button class="srh-mode-btn active" id="musicModeBtn" type="button">
+            <i class="fa-solid fa-music"></i> Music
+          </button>
+          <button class="srh-mode-btn" id="videoModeBtn" type="button">
+            <i class="fa-solid fa-film"></i> Video Player
+          </button>
+        </div>
+        <section
+          class="srh-video-app"
+          id="videoApp"
+          hidden
+          aria-label="Local video player"
+        >
+          <div class="srh-video-heading">
+            <div>
+              <p class="srh-video-eyebrow">SRH MEDIA PLAYER</p>
+              <h1>Your videos, your way.</h1>
+              <p>
+                Play videos stored on your device. Files stay on your device;
+                nothing is uploaded.
+              </p>
+            </div>
+            <div class="srh-video-actions">
+              <button
+                class="srh-primary-btn"
+                id="chooseVideosBtn"
+                type="button"
+              >
+                <i class="fa-solid fa-folder-open"></i> Open videos</button
+              ><button
+                class="srh-secondary-btn"
+                id="clearVideoQueueBtn"
+                type="button"
+              >
+                <i class="fa-regular fa-trash-can"></i> Clear queue</button
+              ><input
+                id="videoFilesInput"
+                type="file"
+                accept="video/*,.mkv,.avi,.mov,.mp4,.webm,.m4v,.3gp,.ogv"
+                multiple
+                hidden
+              /><input
+                id="subtitleFileInput"
+                type="file"
+                accept=".vtt,.srt,text/vtt,application/x-subrip"
+                hidden
+              />
+            </div>
+          </div>
+          <div class="srh-video-layout">
+            <div class="srh-video-main">
+              <div class="srh-video-stage" id="videoStage">
+                <video
+                  id="srhVideo"
+                  playsinline
+                  preload="metadata"
+                  aria-label="Video playback"
+                ></video>
+                <div class="srh-video-empty" id="videoEmptyState">
+                  <div class="srh-video-empty-icon">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                  <h2>Ready when you are</h2>
+                  <p>
+                    Choose videos from your device or drag them into this
+                    player.
+                  </p>
+                  <button
+                    class="srh-primary-btn"
+                    id="emptyChooseVideosBtn"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i> Choose videos
+                  </button>
+                </div>
+                <div
+                  class="srh-video-toast"
+                  id="videoToast"
+                  role="status"
+                  aria-live="polite"
+                ></div>
+              </div>
+              <div class="srh-video-now-playing">
+                <div>
+                  <span class="srh-video-eyebrow">NOW PLAYING</span>
+                  <h2 id="videoTitle">No video selected</h2>
+                  <p id="videoMeta">Open a video file to begin</p>
+                </div>
+                <span class="srh-local-badge"
+                  ><i class="fa-solid fa-shield-halved"></i> Local
+                  playback</span
+                >
+              </div>
+              <div class="srh-video-progress">
+                <span id="videoCurrentTime">00:00</span
+                ><input
+                  aria-label="Seek video"
+                  id="videoSeek"
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="0"
+                /><span id="videoDuration">00:00</span>
+              </div>
+              <div class="srh-video-controls">
+                <button
+                  id="videoPreviousBtn"
+                  title="Previous video (P)"
+                  aria-label="Previous video"
+                  type="button"
+                >
+                  <i class="fa-solid fa-backward-step"></i></button
+                ><button
+                  id="videoBackBtn"
+                  title="Back 10 seconds"
+                  aria-label="Back 10 seconds"
+                  type="button"
+                >
+                  <i class="fa-solid fa-rotate-left"></i
+                  ><small>10</small></button
+                ><button
+                  class="srh-video-play"
+                  id="videoPlayBtn"
+                  title="Play / pause (Space)"
+                  aria-label="Play"
+                  type="button"
+                >
+                  <i class="fa-solid fa-play"></i></button
+                ><button
+                  id="videoForwardBtn"
+                  title="Forward 10 seconds"
+                  aria-label="Forward 10 seconds"
+                  type="button"
+                >
+                  <i class="fa-solid fa-rotate-right"></i
+                  ><small>10</small></button
+                ><button
+                  id="videoNextBtn"
+                  title="Next video (N)"
+                  aria-label="Next video"
+                  type="button"
+                >
+                  <i class="fa-solid fa-forward-step"></i></button
+                ><span class="srh-control-divider"></span
+                ><button
+                  id="videoMuteBtn"
+                  title="Mute (M)"
+                  aria-label="Mute"
+                  type="button"
+                >
+                  <i class="fa-solid fa-volume-high"></i></button
+                ><input
+                  class="srh-video-volume"
+                  id="videoVolume"
+                  aria-label="Video volume"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value="0.8"
+                /><label class="srh-speed-label"
+                  >Speed
+                  <select id="videoSpeed" aria-label="Playback speed">
+                    <option value="0.25">0.25×</option>
+                    <option value="0.5">0.5×</option>
+                    <option value="0.75">0.75×</option>
+                    <option value="1" selected>1×</option>
+                    <option value="1.25">1.25×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="1.75">1.75×</option>
+                    <option value="2">2×</option>
+                  </select></label
+                ><button
+                  id="videoLoopBtn"
+                  title="Loop current video"
+                  aria-label="Loop current video"
+                  type="button"
+                >
+                  <i class="fa-solid fa-repeat"></i></button
+                ><button
+                  id="videoSubtitleBtn"
+                  title="Load subtitles (.vtt or .srt)"
+                  aria-label="Load subtitles"
+                  type="button"
+                >
+                  <i class="fa-solid fa-closed-captioning"></i></button
+                ><button
+                  id="videoPipBtn"
+                  title="Picture in picture"
+                  aria-label="Picture in picture"
+                  type="button"
+                >
+                  <i class="fa-solid fa-clone"></i></button
+                ><button
+                  id="videoFitBtn"
+                  title="Change video fit"
+                  aria-label="Change video fit"
+                  type="button"
+                >
+                  <i class="fa-solid fa-expand"></i></button
+                ><button
+                  id="videoScreenshotBtn"
+                  title="Save screenshot"
+                  aria-label="Save screenshot"
+                  type="button"
+                >
+                  <i class="fa-solid fa-camera"></i></button
+                ><button
+                  id="videoFullscreenBtn"
+                  title="Fullscreen (F)"
+                  aria-label="Fullscreen"
+                  type="button"
+                >
+                  <i class="fa-solid fa-maximize"></i>
+                </button>
+              </div>
+              <div class="srh-video-tip">
+                <i class="fa-regular fa-lightbulb"></i> Shortcuts: Space
+                play/pause · ←/→ seek 5 sec · F fullscreen · M mute · N next · P
+                previous
+              </div>
+            </div>
+            <aside class="srh-video-sidebar">
+              <div class="srh-queue-heading">
+                <div>
+                  <h2>Play queue</h2>
+                  <p id="videoQueueCount">0 videos</p>
+                </div>
+                <button
+                  id="videoShuffleBtn"
+                  title="Shuffle queue"
+                  aria-label="Shuffle queue"
+                  type="button"
+                >
+                  <i class="fa-solid fa-shuffle"></i>
+                </button>
+              </div>
+              <label class="srh-video-search"
+                ><i class="fa-solid fa-magnifying-glass"></i
+                ><input
+                  id="videoSearch"
+                  type="search"
+                  placeholder="Search queue..."
+                  aria-label="Search video queue"
+              /></label>
+              <div class="srh-video-queue" id="videoQueue" aria-live="polite">
+                <div class="srh-queue-empty">
+                  <i class="fa-solid fa-photo-film"></i>
+                  <p>Your video queue is empty.</p>
+                  <span>Add videos to get started.</span>
+                </div>
+              </div>
+              <div class="srh-video-footer-note">
+                <i class="fa-solid fa-lock"></i
+                ><span
+                  >Private by design<br /><small
+                    >Your files are played locally in your browser.</small
+                  ></span
+                >
+              </div>
+            </aside>
+          </div>
+        </section>
+        <div class="Songs-sections">
+          <div class="SongsType" id="trending">
+            <h2>Trending Songs</h2>
+            <div
+              aria-label="Trending Songs cards"
+              class="cardcontainer"
+              data-category="Trending Songs"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>Kannada Songs</h2>
+            <div
+              aria-label="Kannada Songs cards"
+              class="cardcontainer"
+              data-category="Kannada Songs"
+            ></div>
+          </div>
+          <!-- New Random Sections -->
+          <div class="SongsType">
+            <h2>Romantic Hits</h2>
+            <div
+              aria-label="Romantic Hits cards"
+              class="cardcontainer"
+              data-category="Romantic Hits"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>Party Anthems</h2>
+            <div
+              aria-label="Party Anthems cards"
+              class="cardcontainer"
+              data-category="Party Anthems"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>Top 2025 Tracks</h2>
+            <div
+              aria-label="Top 2025 Tracks cards"
+              class="cardcontainer"
+              data-category="Top 2025 Tracks"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>Feel Good Tunes</h2>
+            <div
+              aria-label="Feel Good Tunes cards"
+              class="cardcontainer"
+              data-category="Feel Good Tunes"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>Evergreen Melodies</h2>
+            <div
+              aria-label="Evergreen Melodies cards"
+              class="cardcontainer"
+              data-category="Evergreen Melodies"
+            ></div>
+          </div>
+          <div class="SongsType">
+            <h2>India's Biggest Hits</h2>
+            <div
+              aria-label="India's Biggest Hits cards"
+              class="cardcontainer"
+              data-category="India's Biggest Hits"
+            ></div>
+          </div>
+        </div>
+        <footer class="app-footer">
+          <div class="footer-top">
+            <a aria-label="Back to top" class="footer-brand" href="#top">
+              <img alt="" height="42" src="logo.svg" width="42" />
+              <span
+                ><strong>SRH Music Player</strong
+                ><small>Your sound. Your space.</small></span
+              >
+            </a>
+            <p>Discover your next favorite track, one song at a time.</p>
+            <a class="footer-top-link" href="#top"
+              >Back to top <i class="fa-solid fa-arrow-up"></i
+            ></a>
+          </div>
+          <div class="footer-bottom">
+            <span>© <span class="footerYear"></span> SRH Music Player</span>
+            <div class="footer-links">
+              <a href="#top">Home</a>
+              <button data-footer-action="about" type="button">About</button>
+              <a
+                href="https://github.com/SiddayyaRH5"
+                rel="noopener noreferrer"
+                target="_blank"
+                >GitHub</a
+              >
+              <button data-footer-action="contact" type="button">
+                Contact
+              </button>
+            </div>
+            <span class="footer-made"
+              >Made with <i class="fa-solid fa-heart"></i> for music
+              lovers</span
+            >
+          </div>
+        </footer>
+        <div class="playbar hidden">
+          <div class="seekbar">
+            <input id="seekbar" max="100" type="range" value="0" />
+          </div>
+          <div class="musicbar">
+            <div class="songinfo">Nothing is playing</div>
+            <div class="songbuttons">
+              <img
+                alt="Previous track"
+                aria-label="Previous track"
+                id="previous"
+                role="button"
+                src="previousong.svg"
+                tabindex="0"
+              />
+              <img alt="play" id="play" src="play.svg" />
+              <img
+                alt="Next track"
+                aria-label="Next track"
+                id="next"
+                role="button"
+                src="next.svg"
+                tabindex="0"
+              />
+              <div class="volume">
+                <img alt="" id="volumeIcon" src="volume.svg" />
+                <input
+                  class="volume-slider"
+                  max="100"
+                  min="0"
+                  type="range"
+                  value="50"
+                />
+              </div>
+            </div>
+            <div class="songtime"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Accessible sign-in / sign-up dialog (front-end demo only) -->
+    <div class="auth-overlay" hidden="" id="authOverlay">
+      <section
+        aria-labelledby="authTitle"
+        aria-modal="true"
+        class="auth-dialog"
+        role="dialog"
+      >
+        <button
+          aria-label="Close sign in dialog"
+          class="auth-close"
+          id="authClose"
+          type="button"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="auth-visual">
+          <div class="auth-orb"><i class="fa-solid fa-music"></i></div>
+          <p class="auth-eyebrow">SRH MUSIC PLAYER</p>
+          <h2>Music sounds better <span>together.</span></h2>
+          <p class="auth-visual-copy">
+            Sign in to make your listening space feel like yours.
+          </p>
+          <div aria-hidden="true" class="auth-equalizer">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i><i></i>
+          </div>
+        </div>
+        <div class="auth-form-panel">
+          <div aria-label="Account options" class="auth-tabs" role="tablist">
+            <button
+              aria-selected="true"
+              class="auth-tab active"
+              data-auth-mode="login"
+              role="tab"
+              type="button"
+            >
+              Log in
+            </button>
+            <button
+              aria-selected="false"
+              class="auth-tab"
+              data-auth-mode="signup"
+              role="tab"
+              type="button"
+            >
+              Sign up
+            </button>
+          </div>
+          <p class="auth-kicker">WELCOME TO YOUR SOUNDTRACK</p>
+          <h2 id="authTitle">Log in to SRH Music</h2>
+          <p class="auth-intro" id="authIntro">
+            Pick up right where your music left off.
+          </p>
+          <form id="authForm">
+            <label class="auth-field" hidden="" id="authNameWrap">
+              <span>Your name</span>
+              <span class="auth-input-wrap"
+                ><i class="fa-regular fa-user"></i
+                ><input
+                  autocomplete="name"
+                  id="authName"
+                  name="name"
+                  placeholder="Enter your name"
+                  type="text"
+              /></span>
+            </label>
+            <label class="auth-field">
+              <span>Email address</span>
+              <span class="auth-input-wrap"
+                ><i class="fa-regular fa-envelope"></i
+                ><input
+                  autocomplete="email"
+                  id="authEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  required=""
+                  type="email"
+              /></span>
+            </label>
+            <label class="auth-field">
+              <span>Password</span>
+              <span class="auth-input-wrap"
+                ><i class="fa-solid fa-lock"></i
+                ><input
+                  autocomplete="current-password"
+                  id="authPassword"
+                  minlength="6"
+                  name="password"
+                  placeholder="At least 6 characters"
+                  required=""
+                  type="password" /><button
+                  aria-label="Show password"
+                  class="password-toggle"
+                  id="passwordToggle"
+                  type="button"
+                >
+                  <i class="fa-regular fa-eye"></i></button
+              ></span>
+            </label>
+            <div class="auth-options" id="authOptions">
+              <label
+                ><input id="rememberMe" type="checkbox" checked disabled /> Keep
+                me signed in on this device</label
+              >
+              <button id="forgotPassword" type="button">
+                Forgot password?
+              </button>
+            </div>
+            <button class="auth-submit" id="authSubmit" type="submit">
+              Log in <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p aria-live="polite" class="auth-message" id="authMessage"></p>
+            <p class="auth-terms">
+              Demo account is stored only in this browser on this device. Do not
+              reuse a sensitive password.
+            </p>
+          </form>
+          <p class="auth-switch-copy">
+            <span id="authSwitchText">New to SRH Music?</span>
+            <button id="authSwitch" type="button">Create an account</button>
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./video-player.js"></script>
+  </body>
+</html>
